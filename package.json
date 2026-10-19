@@ -1,0 +1,24 @@
+{
+  "name": "pi-senacgastronomia",
+  "version": "1.0.0",
+  "description": "Projeto desenvolvido para gerenciamento de insumos e movimentações de estoque da área de gastronomia do Senac Sorocaba.",
+  "keywords": [
+    "gerenciamento",
+    "estoque",
+    "cozinha",
+    "senac"
+  ],
+  "license": "ISC",
+  "author": "Pamella Pereto",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.118.0",
+    "dotenv": "^18.0.8",
+    "express": "^5.3.0",
+    "mysql2": "^3.24.6"
+  }
+}
