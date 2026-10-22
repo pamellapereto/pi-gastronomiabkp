@@ -2,7 +2,7 @@ import AuthService from
 "../services/authService.js";
 
 class AuthController {
-    async cadastrar(req, res) {
+    static async cadastrar(req, res) {
         try {
             const {
                 nome,
