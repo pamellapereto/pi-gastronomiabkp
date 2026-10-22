@@ -31,8 +31,3 @@ app.use('/autenticacao',
 // });
 
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
-
-app.listen(PORT, function () {
-    console.log(`Servidor rodando na porta ${PORT}`);
-});
-
