@@ -9,6 +9,9 @@ router.post("/cadastrar", function (req, res) {
     AuthController.cadastrar(req, res)
 });
 
+router.post("/login", (req, res) => {
+    AuthController.login(req, res)
+});
 
 
 /* 
