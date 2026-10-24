@@ -28,11 +28,11 @@ const renderLoginPage = () => {
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const emailValue = inputEmail.value.trim();
-        const senhaValue = inputSenha.value.trim();
+        const email = inputEmail.value.trim();
+        const senha = inputSenha.value.trim();
         const usuario = {
-            emailValue,
-            senhaValue
+            email,
+            senha
         }
         try {
             const resultado = await fetch("http://localhost:3000/autenticacao/login",
@@ -48,9 +48,11 @@ const renderLoginPage = () => {
             if (!resultado.ok) {
                 alert("Conta inexistente!")
             }
-            alert("Login realizado com sucesso!");
-            return confirmacao;
+            else {
+                alert("Login realizado com sucesso!");
 
+            }
+            return confirmacao;
         }
         catch (erro) {
             console.error(erro);
