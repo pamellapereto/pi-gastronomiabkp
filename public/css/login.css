@@ -1,0 +1,22 @@
+.form-login {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.form-login label {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1rem; /*1 rem está para 16px*/
+    color: orangered;
+    font-weight: bold;
+    text-align: left;
+}
+
+.form-login input {
+    width: 100vh;
+    margin: 2rem;
+    border: none;
+    border: 5px solid rgb(48, 128, 255);
+    border-radius: 1rem;
+}

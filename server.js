@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT;
 
 app.use(express.json());
-app.use(express.static("src/view"));
+app.use(express.static("public"));
 
 app.use('/autenticacao',
     authRoutes);

@@ -1,8 +1,11 @@
 const renderLoginPage = () => {
     const container = document.createElement('div');
     container.style.height = '100vh';
+    container.className = "container";
 
     const form = document.createElement('form');
+    form.className = 'form-login';
+
     const labelEmail = document.createElement('label');
     labelEmail.setAttribute('for', 'email');
 
@@ -35,7 +38,8 @@ const renderLoginPage = () => {
             senha
         }
         try {
-            const resultado = await fetch("http://localhost:3000/autenticacao/login",
+            const resultado = await fetch(
+                "http://localhost:3000/autenticacao/login",
                 {
                     method: "POST",
                     headers: {
