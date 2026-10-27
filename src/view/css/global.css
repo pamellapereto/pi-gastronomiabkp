@@ -6,7 +6,8 @@
 
 .root {
     display: flex;
-    flex: 1
+    flex: 1;
+    justify-content: center;
 }
 
 .container {
@@ -17,4 +18,6 @@
     justify-content: center; /* centralização na horizontal de
     elementos incorporados a essa div, ou seja, mesmo valor para
     margem à esquerda à direita */
+    gap: 3rem;
+
 }

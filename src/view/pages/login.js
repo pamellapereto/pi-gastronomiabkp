@@ -1,13 +1,21 @@
 const renderLoginPage = () => {
     const container = document.createElement('div');
     container.style.height = '100vh';
-    container.className = "container";
+    container.className = 'container';
 
     const form = document.createElement('form');
     form.className = 'form-login';
 
+    const divImg = document.createElement('div');
+    divImg.className = 'div-img-login';
+
+    const img = document.createElement('img');
+    img.src = "./assets/senac.png";
+    img.className = 'img-login';
+
     const labelEmail = document.createElement('label');
     labelEmail.setAttribute('for', 'email');
+    labelEmail.textContent = "E-mail";
 
     const inputEmail = document.createElement('input');
     inputEmail.id = 'email';
@@ -18,6 +26,7 @@ const renderLoginPage = () => {
 
     const labelSenha = document.createElement('label');
     labelSenha.setAttribute('for', 'senha');
+    labelSenha.textContent = "Senha";
 
     const inputSenha = document.createElement('input');
     inputSenha.id = 'senha';
@@ -68,8 +77,11 @@ const renderLoginPage = () => {
     form.appendChild(inputEmail);
     form.appendChild(labelSenha);
     form.appendChild(inputSenha);
-    form.appendChild(button);
     container.appendChild(form);
+    form.appendChild(button);
+    divImg.appendChild(img);
+    container.appendChild(divImg)
+    
 
     return container;
 }
