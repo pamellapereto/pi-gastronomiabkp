@@ -1,5 +1,5 @@
 import renderLoginPage from
-"../src/view/pages/login.js";
+"./pages/login.js";
 
 const app = document.querySelector('#root');
 app.replaceChildren(renderLoginPage());
