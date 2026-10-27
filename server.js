@@ -12,7 +12,7 @@ const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(express.static("./src/view"));
-app.use("/src/view/pages", express.static("./src/view/pages"));
+app.use("/src/view", express.static("./src/view/pages"));
 
 app.use('/autenticacao',
     authRoutes);
