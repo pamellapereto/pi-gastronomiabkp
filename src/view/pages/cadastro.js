@@ -1,4 +1,6 @@
-const renderCadastroPage = () => {
+import createPasswordField from '../utils/passwordVisibility.js';
+
+const renderCadastroPage = (icons) => {
     const container = document.createElement('div');
     container.style.height = '100vh';
     container.className = 'container';
@@ -39,8 +41,10 @@ const renderCadastroPage = () => {
     inputSenha.placeholder = 'Digite sua senha'
     inputSenha.required = 'true';
 
+    const passwordField = createPasswordField(inputSenha, icons);
+
     const labelConfirmarSenha = document.createElement('label');
-    labelConfirmarSenha.setAttribute('for', 'senha');
+    labelConfirmarSenha.setAttribute('for', 'confirmar-senha');
     labelConfirmarSenha.textContent = "Confirme sua senha";
 
     const inputConfirmarSenha = document.createElement('input');
@@ -49,6 +53,11 @@ const renderCadastroPage = () => {
     inputConfirmarSenha.name = 'confirmar-senha';
     inputConfirmarSenha.placeholder = 'Redigite sua senha'
     inputConfirmarSenha.required = 'true';
+
+    const confirmPasswordField = createPasswordField(
+        inputConfirmarSenha,
+        icons
+    );
 
     const button = document.createElement('button');
     button.type = 'submit';
@@ -96,9 +105,9 @@ const renderCadastroPage = () => {
     form.appendChild(labelEmail);
     form.appendChild(inputEmail);
     form.appendChild(labelSenha);
-    form.appendChild(inputSenha);
+    form.appendChild(passwordField);
     form.appendChild(labelConfirmarSenha);
-    form.appendChild(inputConfirmarSenha);
+    form.appendChild(confirmPasswordField);
     container.appendChild(form);
     form.appendChild(button);
 
