@@ -6,8 +6,8 @@ import authRoutes from './src/routes/authRoutes.js';
 const require = createRequire(import.meta.url);
 const googleFonts = require('google-fonts');
 const lockIcon = require('@iconify/icons-icons8/lock-2').default;
-const visibleIcon = require('@iconify/icons-mdi/eye').default;
-const invisibleIcon = require('@iconify/icons-mdi/eye-off').default;
+const visibleIcon = require('@iconify/icons-icons8/binoculars').default;
+const invisibleIcon = require('@iconify/icons-icons8/cancel-2').default;
 
 //Carrega as variáveis de ambiente
 dotenv.config();
