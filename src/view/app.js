@@ -3,8 +3,7 @@ import renderLoginPage from
 "./pages/login.js";
 
 const app = document.querySelector('#root');
-const res = await fetch(`/interface-config
-    `);
+const res = await fetch(`/interface-config`);
 const interfaceConfig = await res.json();
 
 const tagLink = document.createElement('link');
@@ -14,4 +13,4 @@ document.head.appendChild(tagLink);
 
 
 
-app.replaceChildren(renderCadastroPage());
+app.replaceChildren(renderCadastroPage(interfaceConfig.icons));

@@ -1,6 +1,3 @@
-//https://icon-sets.iconify.design/?query=eye
-
-
 const renderCadastroPage = () => {
     const container = document.createElement('div');
     container.style.height = '100vh';
@@ -42,8 +39,6 @@ const renderCadastroPage = () => {
     inputSenha.placeholder = 'Digite sua senha'
     inputSenha.required = 'true';
 
-    const passwordField = createPasswordField(inputSenha, icons);
-
     const labelConfirmarSenha = document.createElement('label');
     labelConfirmarSenha.setAttribute('for', 'confirmar-senha');
     labelConfirmarSenha.textContent = "Confirme sua senha";
@@ -54,11 +49,6 @@ const renderCadastroPage = () => {
     inputConfirmarSenha.name = 'confirmar-senha';
     inputConfirmarSenha.placeholder = 'Redigite sua senha'
     inputConfirmarSenha.required = 'true';
-
-    const confirmPasswordField = createPasswordField(
-        inputConfirmarSenha,
-        icons
-    );
 
     const button = document.createElement('button');
     button.type = 'submit';
@@ -104,11 +94,13 @@ const renderCadastroPage = () => {
 
     inputConfirmarSenha.addEventListener("focusout", (event) => {
         if (inputSenha.value !== inputConfirmarSenha.value) {
-            event.target.style.border = "2px solid pink";
+            event.target.style.border = "2px solid red";
             alert("Senhas não coincidem")
+            button.disabled = true;
         }
         else {
-          event.target.style.background = "";
+            event.target.style.border = "2px solid rgb(48, 58, 255);";
+            button.disabled = false;
         }
     });
 
@@ -118,9 +110,9 @@ const renderCadastroPage = () => {
     form.appendChild(labelEmail);
     form.appendChild(inputEmail);
     form.appendChild(labelSenha);
-    form.appendChild(passwordField);
+    form.appendChild(inputSenha);
     form.appendChild(labelConfirmarSenha);
-    form.appendChild(confirmPasswordField);
+    form.appendChild(inputConfirmarSenha);
     container.appendChild(form);
     form.appendChild(button);
 
