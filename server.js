@@ -1,14 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import { createRequire } from 'node:module';
 import authRoutes from './src/routes/authRoutes.js';
 import { createRequire } from 'node:module';
-
-const require = createRequire(import.meta.url);
-const googleFonts = require('google-fonts');
-const lockIcon = require('@iconify/icons-icons8/lock-2').default;
-const visibleIcon = require('@iconify/icons-icons8/binoculars').default;
-const invisibleIcon = require('@iconify/icons-icons8/cancel-2').default;
 
 //Carrega as variáveis de ambiente
 dotenv.config();
@@ -37,21 +30,6 @@ app.get('/interface-config', (req, res) => {
 });
 
 app.use(express.json());
-
-app.get('/interface-config', (req, res) => {
-    const fontLink = googleFonts({ Roboto: ['400', '700'] });
-    const fontUrl = fontLink.match(/href="([^"]+)"/)[1];
-
-    res.json({
-        fontUrl: `https:${fontUrl}`,
-        icons: {
-            lock: lockIcon,
-            visible: visibleIcon,
-            invisible: invisibleIcon
-        }
-    });
-});
-
 app.use(express.static("./src/view"));
 app.use("/src/view", express.static("./src/view/pages"));
 
