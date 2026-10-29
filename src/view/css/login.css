@@ -6,12 +6,13 @@
 }
 
 .form-login label {
-  font-family:
-    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 1rem; /*1 rem está para 16px*/
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+
+  font-size: 20px; /*1 rem está para 16px*/
   color: orangered;
-  font-weight: bold;
   text-align: left;
 }
 
@@ -27,13 +28,29 @@
 .form-login button {
   width: 20vh;
   align-self: center;
-  padding:10px;
+  padding: 10px;
   border: none;
-  background-color:rgb(48, 58, 255);
+  background-color: rgb(178, 177, 177);
   border-radius: 1rem;
   margin-top: 1rem;
   color: white;
-    font-family:
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 22px;
+}
+
+.form-login button:enabled {
+  width: 20vh;
+  align-self: center;
+  padding: 10px;
+  border: none;
+  background-color: rgb(48, 58, 255);
+  border-radius: 1rem;
+  margin-top: 1rem;
+  color: white;
+  font-family:
     "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 1rem;

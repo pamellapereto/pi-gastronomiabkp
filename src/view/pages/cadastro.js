@@ -1,3 +1,6 @@
+//https://icon-sets.iconify.design/?query=eye
+
+
 const renderCadastroPage = () => {
     const container = document.createElement('div');
     container.style.height = '100vh';
@@ -53,6 +56,7 @@ const renderCadastroPage = () => {
     const button = document.createElement('button');
     button.type = 'submit';
     button.textContent = 'Cadastrar'
+    button.disabled = true;
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -90,6 +94,17 @@ const renderCadastroPage = () => {
             alert("Erro ao cadastrar!");
         }
     });
+
+    inputConfirmarSenha.addEventListener("focusout", (event) => {
+        if (inputSenha.value !== inputConfirmarSenha.value) {
+            event.target.style.border = "2px solid pink";
+            alert("Senhas não coincidem")
+        }
+        else {
+          event.target.style.background = "";
+        }
+    });
+
 
     form.appendChild(labelNome);
     form.appendChild(inputNome);
