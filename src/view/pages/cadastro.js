@@ -56,6 +56,7 @@ const renderCadastroPage = (icons) => {
 
     const button = document.createElement('button');
     button.type = 'submit';
+    button.className = 'btn-submit';
     button.textContent = 'Cadastrar'
     button.disabled = true;
 

@@ -15,6 +15,26 @@
   text-align: left;
 }
 
+.divSenha {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.btnVisibilidade {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background-color: transparent;
+  color: rgb(48, 58, 255);
+  cursor: pointer;
+  right: 2.6rem;
+}
+
+
 .form-login input {
   width: 50vh;
   margin: 1rem 2rem;
@@ -24,7 +44,7 @@
   border-radius: 1rem;
 }
 
-.form-login button:disabled {
+.btn-submit:disabled {
   width: 20vh;
   align-self: center;
   padding: 10px;
@@ -40,7 +60,7 @@
   font-size: 22px;
 }
 
-.form-login button:enabled {
+.btn-submit:enabled {
   width: 20vh;
   align-self: center;
   padding: 10px;
