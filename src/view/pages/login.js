@@ -1,6 +1,4 @@
-import createPasswordField from '../utils/passwordVisibility.js';
-
-const renderLoginPage = (icons) => {
+const renderLoginPage = () => {
     const container = document.createElement('div');
     container.style.height = '100vh';
     container.className = 'container';
@@ -35,8 +33,6 @@ const renderLoginPage = (icons) => {
     inputSenha.type = 'password';
     inputSenha.name = 'senha';
     inputSenha.required = 'true';
-
-    const passwordField = createPasswordField(inputSenha, icons);
 
     const button = document.createElement('button');
     button.type = 'submit';
@@ -80,7 +76,7 @@ const renderLoginPage = (icons) => {
     form.appendChild(labelEmail);
     form.appendChild(inputEmail);
     form.appendChild(labelSenha);
-    form.appendChild(passwordField);
+    form.appendChild(inputSenha);
     container.appendChild(form);
     form.appendChild(button);
     divImg.appendChild(img);

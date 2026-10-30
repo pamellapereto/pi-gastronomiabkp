@@ -23,9 +23,9 @@ const criarInputSenha = (input, icons) => {
     const btnVisibilidade = document.createElement('button');
     btnVisibilidade.type = 'button';
     btnVisibilidade.className = 'btnVisibilidade';
-    btnVisibilidade.setAttribute('aria-label', 'Senha visível');
+    btnVisibilidade.setAttribute('aria-label', 'Senha oculta');
     btnVisibilidade.setAttribute('aria-pressed', 'false');
-    renderIcons(btnVisibilidade, icons.visibleIcon);
+    renderIcons(btnVisibilidade, icons.invisibleIcon);
 
     // Evento de clique
     btnVisibilidade.addEventListener('click', () => {
@@ -43,9 +43,11 @@ const criarInputSenha = (input, icons) => {
         //Alterna o ícone
         renderIcons(
             btnVisibilidade,
-            inputEstaVisivel ? icons.visibleIcon : icons.invisibleIcon
+            inputEstaVisivel ? icons.invisibleIcon : icons.visibleIcon
         );
     });
     divSenha.append(input, btnVisibilidade);
+    
+    return divSenha;
 }
 export default criarInputSenha;
