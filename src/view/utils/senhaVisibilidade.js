@@ -1,19 +1,19 @@
 const SVG_RENDER = 'http://www.w3.org/2000/svg';
 //Cria um elemento SVG a partir dos dados disponbilizados pela Iconify
-const renderIcons = (data, icon) => {
+const renderIcons = (btnIcon, data) => {
     const svg = document.createElementNS(
         SVG_RENDER,
         'svg'
     );
-    const width = icon.width || 16;
-    const height = icon.height || 16;
+    const width = data.width || 16;
+    const height = data.height || 16;
     svg.setAttribute(
         'viewBox',
         `0 0 ${width} ${height}`
     );
     svg.setAttribute('aria-hidden', 'true');
-    svg.innerHTML = icon.body
-    data.replaceChildren(svg);
+    svg.innerHTML = data.body
+    btnIcon.replaceChildren(svg);
 }
 //Cria um campo de senha com botão de visibilidade
 const criarInputSenha = (input, icons) => {

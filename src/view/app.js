@@ -13,4 +13,4 @@ document.head.appendChild(tagLink);
 
 
 
-app.replaceChildren(renderCadastroPage(interfaceConfig.icons));
+app.replaceChildren(renderLoginPage(interfaceConfig.icons));

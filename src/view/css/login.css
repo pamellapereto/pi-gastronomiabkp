@@ -58,6 +58,7 @@
   font-weight: 700;
   font-style: normal;
   font-size: 22px;
+  cursor: pointer;
 }
 
 .btn-submit:enabled {
@@ -74,6 +75,7 @@
   font-weight: 700;
   font-style: normal;
   font-size: 22px;
+  cursor: pointer;
 }
 
 .div-img-login {

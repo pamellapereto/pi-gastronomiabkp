@@ -1,4 +1,6 @@
-const renderLoginPage = () => {
+import criarInputSenha from "../utils/senhaVisibilidade.js";
+
+const renderLoginPage = (icons) => {
     const container = document.createElement('div');
     container.style.height = '100vh';
     container.className = 'container';
@@ -33,10 +35,12 @@ const renderLoginPage = () => {
     inputSenha.type = 'password';
     inputSenha.name = 'senha';
     inputSenha.required = 'true';
+    const campoSenha = criarInputSenha(inputSenha, icons);
 
     const button = document.createElement('button');
     button.type = 'submit';
     button.textContent = 'Entrar'
+    button.className = 'btn-submit';
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -76,7 +80,7 @@ const renderLoginPage = () => {
     form.appendChild(labelEmail);
     form.appendChild(inputEmail);
     form.appendChild(labelSenha);
-    form.appendChild(inputSenha);
+    form.appendChild(campoSenha);
     container.appendChild(form);
     form.appendChild(button);
     divImg.appendChild(img);
