@@ -35,12 +35,21 @@ const renderLoginPage = (icons) => {
     inputSenha.type = 'password';
     inputSenha.name = 'senha';
     inputSenha.required = 'true';
+    inputSenha.placeholder = 'Digite sua senha'
     const campoSenha = criarInputSenha(inputSenha, icons);
 
     const button = document.createElement('button');
     button.type = 'submit';
     button.textContent = 'Entrar'
     button.className = 'btn-submit';
+
+    const linha = document.createElement('hr');
+    linha.className = 'linha';
+
+    const linkNav = document.createElement('a');
+    linkNav.className = 'linkNav';
+    linkNav.href = './pages/cadastro.js';
+    linkNav.textContent = 'Não possui conta? Cadastre-se!';
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -81,8 +90,10 @@ const renderLoginPage = (icons) => {
     form.appendChild(inputEmail);
     form.appendChild(labelSenha);
     form.appendChild(campoSenha);
-    container.appendChild(form);
     form.appendChild(button);
+    form.appendChild(linha);
+    form.appendChild(linkNav);
+    container.appendChild(form);
     divImg.appendChild(img);
     container.appendChild(divImg)
     

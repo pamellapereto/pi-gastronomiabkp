@@ -78,6 +78,22 @@
   cursor: pointer;
 }
 
+.linha {
+  width: 50%;
+  align-self: center;
+  margin: 30px 0; /*1rem para top e bottom; 0 para right e left*/
+  border: 1px solid orangered;
+}
+
+.linkNav {
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 18px;
+  text-align: center;
+}
+
 .div-img-login {
   width: 100%;
   max-width: 500px;
