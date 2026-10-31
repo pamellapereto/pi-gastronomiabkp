@@ -92,6 +92,9 @@
   font-style: normal;
   font-size: 18px;
   text-align: center;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .div-img-login {

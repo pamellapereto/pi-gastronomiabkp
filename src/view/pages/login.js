@@ -1,6 +1,6 @@
 import criarInputSenha from "../utils/senhaVisibilidade.js";
 
-const renderLoginPage = (icons) => {
+const renderLoginPage = (icons, navegarParaCadastro) => {
     const container = document.createElement('div');
     container.style.height = '100vh';
     container.className = 'container';
@@ -48,8 +48,11 @@ const renderLoginPage = (icons) => {
 
     const linkNav = document.createElement('a');
     linkNav.className = 'linkNav';
-    linkNav.href = './pages/cadastro.js';
     linkNav.textContent = 'Não possui conta? Cadastre-se!';
+    linkNav.addEventListener('click', (event) => {
+        event.preventDefault();
+        navegarParaCadastro();
+    });
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -96,7 +99,7 @@ const renderLoginPage = (icons) => {
     container.appendChild(form);
     divImg.appendChild(img);
     container.appendChild(divImg)
-    
+
 
     return container;
 }

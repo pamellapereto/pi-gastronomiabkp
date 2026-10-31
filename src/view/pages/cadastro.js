@@ -1,12 +1,24 @@
-import criarInputSenha from "../utils/senhaVisibilidade.js";   
+import criarInputSenha from "../utils/senhaVisibilidade.js";
 
-const renderCadastroPage = (icons) => {
+const renderCadastroPage = (icons, navegarParaLogin) => {
     const container = document.createElement('div');
     container.style.height = '100vh';
     container.className = 'container';
 
     const form = document.createElement('form');
     form.className = 'form-login';
+
+    const linha = document.createElement('hr');
+    linha.className = 'linha';
+
+    const linkNav = document.createElement('a');
+    linkNav.className = "linkNav";
+    linkNav.textContent = 'Já possui uma conta? Faça login!'
+    linkNav.addEventListener('click', (event) => {
+        event.preventDefault();
+        navegarParaLogin();
+    });
+
 
     const labelNome = document.createElement('label');
     labelNome.setAttribute('for', 'nome');
@@ -40,7 +52,7 @@ const renderCadastroPage = (icons) => {
     inputSenha.name = 'senha';
     inputSenha.placeholder = 'Digite sua senha'
     inputSenha.required = 'true';
-    const campoSenha = criarInputSenha(inputSenha, icons);                           
+    const campoSenha = criarInputSenha(inputSenha, icons);
 
     const labelConfirmarSenha = document.createElement('label');
     labelConfirmarSenha.setAttribute('for', 'confirmar-senha');
@@ -52,7 +64,7 @@ const renderCadastroPage = (icons) => {
     inputConfirmarSenha.name = 'confirmar-senha';
     inputConfirmarSenha.placeholder = 'Redigite sua senha'
     inputConfirmarSenha.required = 'true';
-    const campoConfirmarSenha = criarInputSenha(inputConfirmarSenha, icons);         
+    const campoConfirmarSenha = criarInputSenha(inputConfirmarSenha, icons);
 
     const button = document.createElement('button');
     button.type = 'submit';
@@ -120,6 +132,8 @@ const renderCadastroPage = (icons) => {
     form.appendChild(campoConfirmarSenha);
     container.appendChild(form);
     form.appendChild(button);
+    form.appendChild(linha);
+    form.appendChild(linkNav);
 
     return container;
 }
