@@ -1,6 +1,7 @@
 import renderCadastroPage from "./pages/cadastro.js";
 import renderLoginPage from
     "./pages/login.js";
+ import renderHomePage from "./pages/home.js";   
 
 const app = document.querySelector('#root');
 const res = await fetch(`/interface-config`);
@@ -18,11 +19,10 @@ function navegarParaCadastro() {
     ));
 }
 function navegarParaLogin() {
-    app.replaceChildren(renderLoginPage(
-        interfaceConfig.icons,
-        navegarParaCadastro
+    app.replaceChildren(renderHomePage(
+    //app.replaceChildren(renderLoginPage(
+        //interfaceConfig.icons,
+        //navegarParaCadastro
     ));
 }
-
-
 navegarParaLogin();
