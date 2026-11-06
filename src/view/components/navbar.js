@@ -3,9 +3,9 @@ const navbar = () => {
     /*medidas: vw = view width (horizontal);
     vh = view height (vertical)*/
     container.style.width = '100vw';
-    container.style.height = '3rem';
-    container.style.backgroundColor = 'orange';
-    container.className = 'menu';
+    container.style.height = '4rem';
+    container.style.backgroundColor = '#3632a8';
+    container.className = 'div-menu';
 
     const menu = document.createElement('ul');
     // const itens = ['Vagas', 'Minhas candidaturas']; //Conecta Talent (exemplo)
