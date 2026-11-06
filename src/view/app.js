@@ -40,4 +40,26 @@ window.addEventListener(
     navegarPorHash
 );
 
-//2ª estratégia de navegação por requisição de caminho (path) 
+//2ª estratégia de navegação por requisição de caminho (express)
+function navegarPorReq() {
+    const path = window.location.pathname;
+    switch (path) {
+        case "/home":
+            app.replaceChildren(renderHomePage());
+            break;
+        case "/login":
+            navegarParaLogin();
+            break;
+        case "/cadastro":
+            navegarParaCadastro();
+    }
+}
+//Função para decidir qual navegação está sendo usada
+function renderizar() {
+    if (window.location.hash) {
+        navegarPorHash();
+        return;
+    }
+    navegarPorReq();
+}
+renderizar();
