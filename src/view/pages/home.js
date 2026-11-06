@@ -2,12 +2,15 @@ import navbar from "../components/navbar.js";
 
 const renderHomePage = () => {
     const container = document.createElement('div');
-    container.style.height = '100vh';
     container.className = 'container';
+    container.style.flexDirection = 'column';
 
     const navigation = navbar();
     container.appendChild(navigation);
+    const titulo = document.createElement('h1');
+    titulo.textContent = "Conteúdo da página home";
 
+    container.appendChild(titulo);
     return container;
 }
 
