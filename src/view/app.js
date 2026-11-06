@@ -21,6 +21,7 @@ function navegarParaLogin() {
         navegarParaCadastro
     ));
 }
+//1ª estratégia de navegação por hash
 function navegarPorHash() {
     const hash = window.location.hash;
     switch (hash) {
@@ -38,3 +39,5 @@ window.addEventListener(
     "hashchange",
     navegarPorHash
 );
+
+//2ª estratégia de navegação por requisição de caminho (path) 
