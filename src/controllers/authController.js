@@ -7,7 +7,8 @@ class AuthController {
             const {
                 nome,
                 email,
-                senha
+                senha,
+                tipo_usuario
             } = req.body
 
             if (!nome || !email || !senha) {
@@ -18,7 +19,7 @@ class AuthController {
                             campos obrigatórios`});
             }
             const resultado = await AuthService.cadastrar(
-                nome, email, senha
+                nome, email, senha, tipo_usuario
             );
             return res
                 .status(201)
