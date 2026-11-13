@@ -25,7 +25,7 @@ class AuthService {
             error: erroUsuario } = await connAdmin.from("usuario").insert({
                 id_usuario: id_usuario,
                 perfil_usuario: tipo_usuario
-            }).select.single();
+            }).select().single();
         if(erroUsuario) {
             await connAdmin.auth.admin.deleteUser(id_usuario);
         }
