@@ -1,6 +1,4 @@
-import AuthService from
-    "../services/authService.js";
-
+import AuthService from "../services/authService.js";
 class AuthController {
     static async cadastrar(req, res) {
         try {
@@ -11,13 +9,32 @@ class AuthController {
                 tipo_usuario
             } = req.body
 
-            if (!nome || !email || !senha) {
+            if (!nome || !email || !senha || !tipo_usuario) {
                 return res
                     .status(400)
                     .json({
                         erro: `Preencha todos os
                             campos obrigatórios`});
             }
+
+            const tiposPermitidos = [
+                "Recrutador", //Apoio
+                "Administrador", //Auxiliar
+                "Candidato", //Docente
+                "Empresa"
+            ];
+
+            if (!tiposPermitidos.includes(
+                tipo_usuario
+            )) {
+
+                return res
+                    .status(400)
+                    .json({
+                        erro: `Tipo de usuário inválido`
+                    });
+            }
+
             const resultado = await AuthService.cadastrar(
                 nome, email, senha, tipo_usuario
             );
@@ -25,7 +42,9 @@ class AuthController {
                 .status(201)
                 .json({
                     mensagem: `Cadastro feito com sucesso!`,
-                    usuario: resultado.user,
+                    usuario: resultado.dadosUsuario,
+                    auth: resultado.auth.user,
+                    session: resultado.auth.session,
                     requerConfirmacao: !resultado.session
                 });
         }
