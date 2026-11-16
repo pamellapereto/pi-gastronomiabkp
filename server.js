@@ -15,8 +15,8 @@ import { fileURLToPath } from 'node:url';
 C:\\Users\\pamel\\Documents\\pi-senacgastronomia*/
 import path from 'node:path';
 import perfilRoutes from './src/routes/perfilRoutes.js'; //Conecta
-import turmaRoutes from './src/routes/turmaRoutes.js'; //Gastronomia
-import cursoRoutes from './src./routes/cursoRoutes.js'; //Gastronomia
+//import turmaRoutes from './src/routes/turmaRoutes.js'; //Gastronomia
+//import cursoRoutes from './src./routes/cursoRoutes.js'; //Gastronomia
  
 //Carrega as variáveis de ambiente
 dotenv.config();
@@ -85,8 +85,8 @@ app.use("/src/view", express.static("./src/view/pages"));
 
 app.use('/autenticacao', authRoutes);
 app.use('/perfil', perfilRoutes); //Coneta Talent
-app.use('/turmas', turmaRoutes);  //Gastronomia
-app.use('/cursos', cursoRoutes);  //Gastronomia
+//app.use('/turmas', turmaRoutes);  //Gastronomia
+//app.use('/cursos', cursoRoutes);  //Gastronomia
 
 app.listen(PORT, () => console.log
 (`Servidor rodando na porta ${PORT}`));
