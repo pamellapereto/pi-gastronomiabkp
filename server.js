@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 /*path => obter o caminho absoluto do diretório do projeto onde o arquivo server.js está, ou seja:
 C:\\Users\\pamel\\Documents\\pi-senacgastronomia*/
 import path from 'node:path';
-import perfilRoutes from './src/routes/perfilRoutes.js'; //Conecta
+//import perfilRoutes from './src/routes/perfilRoutes.js'; //Conecta
 //import turmaRoutes from './src/routes/turmaRoutes.js'; //Gastronomia
 //import cursoRoutes from './src./routes/cursoRoutes.js'; //Gastronomia
  
@@ -84,7 +84,7 @@ app.use(express.static("./src/view"));
 app.use("/src/view", express.static("./src/view/pages"));
 
 app.use('/autenticacao', authRoutes);
-app.use('/perfil', perfilRoutes); //Coneta Talent
+//app.use('/perfil', perfilRoutes); //Coneta Talent
 //app.use('/turmas', turmaRoutes);  //Gastronomia
 //app.use('/cursos', cursoRoutes);  //Gastronomia
 
