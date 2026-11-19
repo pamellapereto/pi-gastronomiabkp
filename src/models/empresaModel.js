@@ -19,7 +19,17 @@ class EmpresaModel {
         if (error) {
             throw error;
         }
-
+        return data;
+    }
+    static async buscarPorUsuarioPerfilEmpresa(id_usuario) {
+        const {
+            data,
+            error
+        } = await connAdmin.from("empresa").select("*")
+        .eq("id_usuario", id_usuario).maybeSingle();
+        if (error) {
+            throw error;
+        }
         return data;
     }
 }
