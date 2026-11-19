@@ -46,5 +46,17 @@ class AuthService {
         if (error) throw error;
         return data;
     }
+    
+    static async buscarPorIdUsuario(id_usuario) {
+        const {
+            data,
+            error
+        } = await connAdmin.from("usuario").select("*")
+        .eq("id_usuario", id_usuario).maybeSingle();
+        if (error) {
+            throw error;
+        }
+        return data;
+    }
 }
 export default AuthService;

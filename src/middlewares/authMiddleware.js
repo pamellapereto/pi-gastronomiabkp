@@ -2,7 +2,6 @@
 // uma vez gerado, o token deve ser reaproveitado para VALIDAR este usuário
 // PI Conecta Talent - exemplo: apenas empresa gerencia um recrutador
 // PI Gastronomia - exemplo: apenas auxiliar registra a saída de um insumo do estoque
-
 class AuthMiddleware {
     static async validarToken(req, res) {
         try {
@@ -17,7 +16,6 @@ class AuthMiddleware {
                 data,
                 erro
             } = await conn.auth.getUser(tokenExtraction);
-
             if (erro || !data.user) {
                 return res.status(401).json({
                     erro: `Token inválido ou expirado: ${erro.message}`
@@ -25,10 +23,9 @@ class AuthMiddleware {
             }
             req.usuario = data.user;
             req.tokenExtraction = tokenExtraction;
-        }
-        catch (erro) {
+        } catch (erro) {
             return res.status(500).json({
-            erro: `Erro ao validar autenticação: ${erro.message}`
+                erro: `Erro ao validar autenticação: ${erro.message}`
             });
         }
     }
