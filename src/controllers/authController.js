@@ -9,7 +9,7 @@ class AuthController {
                 tipo_usuario
             } = req.body
 
-            if (!nome || !email || !senha || !tipo_usuario) {
+            if (/*!nome ||*/ !email || !senha || !tipo_usuario) {
                 return res
                     .status(400)
                     .json({

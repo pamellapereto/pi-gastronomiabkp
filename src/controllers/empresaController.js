@@ -1,10 +1,10 @@
-import EmpresaService from "../services/empresaService";
+import EmpresaService from "../services/empresaService.js";
 
 class EmpresaController {
     static async completarPerfil(req, res) {
         try {
             const requisicao = await
-            EmpresaService.completarPerfil(req.body);
+            EmpresaService.completarPerfil(req.usuario.id_usuario, req.body);
             return res.status(201).json({
                 mensagem: `Cadastro realizado com sucesso ${requisicao}`
             });

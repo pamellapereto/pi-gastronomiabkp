@@ -1,4 +1,4 @@
-import { connAdmin } from "../config/database";
+import { connAdmin } from "../config/database.js";
 
 class EmpresaModel {
     static async criar(id_usuario, dados) {

@@ -1,4 +1,4 @@
-import AuthService from "../services/authService"
+import AuthService from "../services/authService.js"
 
 class EmpresaMiddleware {
     static async validarPerfil(req, res) {

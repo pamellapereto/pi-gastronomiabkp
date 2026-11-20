@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import authRoutes from './src/routes/authRoutes.js';
+import perfilRoutes from './src/routes/perfilRoutes.js';
 /*createRequire => função para localizar o caminho de subdiretórios
 e/ou arquivos presentes em um certo módulo do Node, quando este módulo já
 estiver instalado*/
@@ -84,7 +85,7 @@ app.use(express.static("./src/view"));
 app.use("/src/view", express.static("./src/view/pages"));
 
 app.use('/autenticacao', authRoutes);
-//app.use('/perfil', perfilRoutes); //Coneta Talent
+app.use('/perfil', perfilRoutes); //Coneta Talent
 //app.use('/turmas', turmaRoutes);  //Gastronomia
 //app.use('/cursos', cursoRoutes);  //Gastronomia
 
