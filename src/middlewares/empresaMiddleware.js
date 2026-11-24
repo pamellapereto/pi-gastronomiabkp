@@ -1,26 +1,28 @@
 import AuthService from "../services/authService.js"
 
-class EmpresaMiddleware {
-    static async validarPerfil(req, res) {
+class EmpresaMiddleware { //ApoioMiddleware
+    static async validarPerfil(req, res, next) {
         try {
             const perfil = await AuthService
-            .buscarPorIdUsuario(req.usuario.id_usuario);
+            .buscarPorIdUsuario(req.usuario.id);  
             if (!perfil) {
                 return res.status(403).json({
-                    erro: `Usuário não encontrado no sistema, portanto,
+                    error: `Usuário não encontrado no sistema, portanto,
                     não possui um perfil`
                 });
             }
-                if (perfil.perfil_usuario !== "Empresa") {
+                if (perfil.perfil_usuario !== "Empresa") { //Apoio
                     return res.status(403).json ({
-                        erro: `Acesso permitido apenas para o perfil Empresa`
+                        error: `Acesso permitido apenas para o perfil Empresa` //Apoio
                     });
                 }
                 req.usuario = perfil;
+
+                next();
         }
-        catch (erro) {
+        catch (error) {
             return res.status(500).json({
-                erro: `Erro ao validar perfil de empresa: ${erro.message}`
+                error: `error ao validar perfil de empresa: ${error.message}` //Apoio
             })
         }
     }

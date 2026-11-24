@@ -11,12 +11,12 @@ class EmpresaService {
         //Aplicar trim() para os outros valores => tipo_empresaLimpo, porteLimpo
 
         if (!razao_socialLimpo || !tipo_empresa || !porte) {
-            throw new Error(`Todos os campos são obrigatórios!`);
+            throw new error(`Todos os campos são obrigatórios!`);
         }
         const empresaExistente =
             await EmpresaModel.buscarPorUsuarioPerfilEmpresa(id_usuario);
         if (empresaExistente) {
-            throw new Error(`O perfil dessa empresa já foi cadastrado!`);
+            throw new error(`O perfil dessa empresa já foi cadastrado!`);
         }
 
         const empresa = await EmpresaModel.criar(id_usuario,

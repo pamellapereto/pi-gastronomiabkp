@@ -13,7 +13,7 @@ class AuthController {
                 return res
                     .status(400)
                     .json({
-                        erro: `Preencha todos os
+                        r: `Preencha todos os
                             campos obrigatórios`});
             }
 
@@ -31,7 +31,7 @@ class AuthController {
                 return res
                     .status(400)
                     .json({
-                        erro: `Tipo de usuário inválido`
+                        error: `Tipo de usuário inválido`
                     });
             }
 
@@ -48,10 +48,10 @@ class AuthController {
                     requerConfirmacao: !resultado.session
                 });
         }
-        catch (erro) {
+        catch (error) {
             return res
                 .status(400)
-                .json({ erro: `Falha ao cadastrar: ${erro.message}` });
+                .json({ error: `Falha ao cadastrar: ${error.message}` });
         }
     }
     static async login(req, res) {
@@ -65,7 +65,7 @@ class AuthController {
                 return res
                     .status(400)
                     .json({
-                        erro: `Preencha todos os
+                        error: `Preencha todos os
                             campos obrigatórios`});
             }
             const resultado = await AuthService.login(
@@ -79,12 +79,12 @@ class AuthController {
                     token: resultado.session.access_token
                 });
         }
-        catch (erro) {
+        catch (error) {
             return res
                 .status(400)
                 .json({
-                    erro: `Falha ao logar:
-                    ${erro.message}`
+                    error: `Falha ao logar:
+                    ${error.message}`
                 });
         }
     }
