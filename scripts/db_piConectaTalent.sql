@@ -59,7 +59,7 @@ create table if not exists conecta_talent.unidade (
   id_empresa int not null
     references conecta_talent.empresa(id_empresa)
 );
-                          /* Para vocês é public.vaga */ 
+                          /* Para vocês public.vaga */ 
 create table if not exists conecta_talent.vaga (
   id_vaga int generated always as identity primary key,
   titulo_vaga varchar(150) not null,
