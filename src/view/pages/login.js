@@ -64,7 +64,7 @@ const renderLoginPage = (icons, navegarParaCadastro) => {
         }
         try {
             const resultado = await fetch(
-                "http://localhost:3000/autenticacao/login",
+                "/autenticacao/login",
                 {
                     method: "POST",
                     headers: {

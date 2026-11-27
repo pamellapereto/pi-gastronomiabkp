@@ -1,71 +1,35 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import authRoutes from './src/routes/authRoutes.js';
-import perfilRoutes from './src/routes/perfilRoutes.js';
-/*createRequire => função para localizar o caminho de subdiretórios
-e/ou arquivos presentes em um certo módulo do Node, quando este módulo já
-estiver instalado*/
+import turmaRoutes from './src/routes/turmaRoutes.js';
+import cursoRoutes from './src/routes/cursoRoutes.js';
 import { createRequire } from 'node:module';
-/*fileURLToPath => função que obtém o caminho do arquivo atual em que
-esta função está sendo executada; ou seja, o caminho absoluto do arquivo
-server.js => "C:\\Users\\pamel\\Documents\\pi-senacgastronomia\\server.js*
-Obs.: Tanto createRequire como fileURLToPath são duas funções que aguardam
-um parâmetro do tipo string, neste caso, um caminho*/
 import { fileURLToPath } from 'node:url';
-/*path => obter o caminho absoluto do diretório do projeto onde o arquivo server.js está, ou seja:
-C:\\Users\\pamel\\Documents\\pi-senacgastronomia*/
 import path from 'node:path';
-//import perfilRoutes from './src/routes/perfilRoutes.js'; //Conecta
-//import turmaRoutes from './src/routes/turmaRoutes.js'; //Gastronomia
-//import cursoRoutes from './src./routes/cursoRoutes.js'; //Gastronomia
- 
-//Carrega as variáveis de ambiente
+
 dotenv.config();
 
-//Responsável pela API: definir rotas e processar
-// requisições
 const app = express();
 const PORT = process.env.PORT;
 const require = createRequire(import.meta.url);
 const googleFonts = require('google-fonts');
 const visibleIcon = require('@iconify/icons-basil/eye-solid').default;
-const invisibleIcon = require('@iconify/icons-basil/eye-closed-outline')
-.default;
+const invisibleIcon = require('@iconify/icons-basil/eye-closed-outline').default;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.get("/home", (req, res) => {
-    res.sendFile(
-        path.join(__dirname,
-            "src",
-            "view",
-            "index.html"
-            //"C:\\Users\\pamel\\Documents\\pi-senacgastronomia\\src\\view\\index.html"
-        )
-    );
+    res.sendFile(path.join(__dirname, "src", "view", "index.html"));
 });
 
 app.get("/login", (req, res) => {
-    res.sendFile(
-        path.join(__dirname,
-            "src",
-            "view",
-            "index.html"
-        )
-    );
+    res.sendFile(path.join(__dirname, "src", "view", "index.html"));
 });
 
 app.get("/cadastro", (req, res) => {
-    res.sendFile(
-        path.join(__dirname,
-            "src",
-            "view",
-            "index.html"
-        )
-    );
+    res.sendFile(path.join(__dirname, "src", "view", "index.html"));
 });
-
 
 app.get('/interface-config', (req, res) => {
     const fontFamily = googleFonts({'League Spartan': ['400', '700']});
@@ -76,7 +40,7 @@ app.get('/interface-config', (req, res) => {
         icons: {
             visibleIcon: visibleIcon,
             invisibleIcon: invisibleIcon
-        },
+        }
     });
 });
 
@@ -85,9 +49,7 @@ app.use(express.static("./src/view"));
 app.use("/src/view", express.static("./src/view/pages"));
 
 app.use('/autenticacao', authRoutes);
-app.use('/perfil', perfilRoutes); //Coneta Talent
-//app.use('/turmas', turmaRoutes);  //Gastronomia
-//app.use('/cursos', cursoRoutes);  //Gastronomia
+app.use('/turmas', turmaRoutes);
+app.use('/cursos', cursoRoutes);
 
-app.listen(PORT, () => console.log
-(`Servidor rodando na porta ${PORT}`));
+app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));

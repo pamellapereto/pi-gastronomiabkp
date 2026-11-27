@@ -12,6 +12,9 @@ const connAdmin = createClient(
             autoRefreshToken: false,
             detectSessionInUrl: false,
             persistSession: false
+        },
+        db: {
+            schema: 'senac_gastronomia'
         }
     }
 );
@@ -19,7 +22,12 @@ const connAdmin = createClient(
 //CLIENTE COMUM
 const conn = createClient(
     process.env.SUPABASE_URL,
-    process.env.SUPABASE_KEY
+    process.env.SUPABASE_KEY,
+    {
+        db: {
+            schema: 'senac_gastronomia'
+        }
+    }
 );
 
 export {

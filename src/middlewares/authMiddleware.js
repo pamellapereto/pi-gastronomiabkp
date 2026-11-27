@@ -1,35 +1,40 @@
-// Uso do token: usuário se autentica, é gerado um token pelo próprio Supabase;
-// uma vez gerado, o token deve ser reaproveitado para VALIDAR este usuário
-// PI Conecta Talent - exemplo: apenas empresa gerencia um recrutador
-// PI Gastronomia - exemplo: apenas auxiliar registra a saída de um insumo do estoque
+// Valida o Bearer Token gerado pelo Supabase.
 import conn from "../config/database.js";
+
 class AuthMiddleware {
     static async validarToken(req, res, next) {
         try {
             const authorization = req.headers.authorization;
+
             if (!authorization?.startsWith("Bearer ")) {
                 return res.status(401).json({
-                    error: `Token não informado: ${error.message}`
+                    error: `Token não informado`
                 });
             }
+
             const tokenExtraction = authorization.slice(7);
+
             const {
                 data,
                 error
             } = await conn.auth.getUser(tokenExtraction);
+
             if (error || !data.user) {
                 return res.status(401).json({
-                    error: `Token inválido ou expirado: ${error.message}`
+                    error: `Token inválido ou expirado`
                 });
             }
+
             req.usuario = data.user;
             req.tokenExtraction = tokenExtraction;
             next();
-        } catch (error) {
+        }
+        catch (error) {
             return res.status(500).json({
-                error: `error ao validar autenticação: ${error.message}`
+                error: `Erro ao validar autenticação: ${error.message}`
             });
         }
     }
 }
+
 export default AuthMiddleware;
