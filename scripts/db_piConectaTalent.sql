@@ -1,4 +1,5 @@
 /* Projeto Integrador Conecta Talent - PostgreSQL / Supabase */
+/* PARA VOCÊS É SEMPRE public.nome_da_tabela */
 
 create type conecta_talent.tipo_usuario as enum (
   'Candidato',
@@ -80,3 +81,18 @@ create table if not exists conecta_talent.vaga (
   id_unidade int not null
     references conecta_talent.unidade(id_unidade)
 );
+
+                          /* Para vocês é public.endereco */
+CREATE TABLE IF NOT EXISTS conecta_talent.endereco (
+  id_endereco int generated always as identity primary key,
+  logradouro varchar(150) not null,
+  numero varchar(5),
+  complemento varchar(70),
+  bairro varchar(50) not null,
+  cidade varchar(50) not null,
+  estado char(2) not null,
+  cep varchar(9) not null
+);
+
+            /* Para vocês é public.unidade */
+ALTER TABLE conecta_talent.unidade ADD id_endereco int not null references conecta_talent.endereco(id_endereco);
