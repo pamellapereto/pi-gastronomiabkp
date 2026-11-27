@@ -34,4 +34,4 @@ app.use("/src/view", express.static("./src/view/pages"));
 app.use('/autenticacao', authRoutes);
 app.use('/perfil', perfilRoutes);
 
-app.listen(PORT, () => console.log(`Servidor rodando na porta http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Servidor rodando na seguinte porta http://localhost:${PORT}`));
