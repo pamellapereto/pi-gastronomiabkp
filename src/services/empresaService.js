@@ -7,31 +7,37 @@ class EmpresaService {
             tipo_empresa,
             porte
         } = dados;
-        const razao_socialLimpo = razao_social.trim();
-        //Aplicar trim() para os outros valores => tipo_empresaLimpo, porteLimpo
 
-        if (!razao_socialLimpo || !tipo_empresa || !porte) {
-            throw new error(`Todos os campos são obrigatórios!`);
+        if (!razao_social || !tipo_empresa || !porte) {
+            throw new Error(`Todos os campos são obrigatórios!`);
         }
+
+        const razao_socialLimpo = razao_social.trim();
+        const tipo_empresaLimpo = tipo_empresa.trim();
+        const porteLimpo = porte.trim();
+
+        if (!razao_socialLimpo || !tipo_empresaLimpo || !porteLimpo) {
+            throw new Error(`Todos os campos são obrigatórios!`);
+        }
+
         const empresaExistente =
             await EmpresaModel.buscarPorUsuarioPerfilEmpresa(id_usuario);
+
         if (empresaExistente) {
-            throw new error(`O perfil dessa empresa já foi cadastrado!`);
+            throw new Error(`O perfil dessa empresa já foi cadastrado!`);
         }
 
-        const empresa = await EmpresaModel.criar(id_usuario,
+        const empresa = await EmpresaModel.criar(
+            id_usuario,
             {
-                ...dados,
-                razao_social: razao_socialLimpo
+                razao_social: razao_socialLimpo,
+                tipo_empresa: tipo_empresaLimpo,
+                porte: porteLimpo
             }
-            /* {
-                    razao_social: razaoSocialLimpo,
-                    tipo_empresa: tipo_empresaLimpo,
-                    porte: porteLimpo
-                }
-            */
         );
+
         return empresa;
     }
 }
+
 export default EmpresaService;

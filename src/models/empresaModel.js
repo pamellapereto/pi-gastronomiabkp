@@ -5,31 +5,27 @@ class EmpresaModel {
         const {
             data,
             error
-        } = await connAdmin.from("empresa").insert({//PIGas:"curso" (se for arquivo cursoModel.js)/"turma" (se for arquivo turmaModel.js)
-            id_usuario: id_usuario, //seja curso ou seja turma, passa id_usuario: id_usuario
-            //PIGas: titulo: dados.titulo/cod_oferta: dados.cod_oferta
-            razao_social: dados.razao_social, 
-            //PIGas: cargaHoraria: dados.cargaHoraria/dataInicio: dados.dataInicio
+        } = await connAdmin.from("empresa").insert({
+            id_usuario: id_usuario,
+            razao_social: dados.razao_social,
             tipo_empresa: dados.tipo_empresa,
-            //PIGas: modalidade: dados.modalidade/periodo: dados.periodo
             porte: dados.porte
-            //PIGas: formato: dados.formato/fk_curso: dados.fk_curso
         }).select().single();
 
-        if (error) {
-            throw error;
-        }
+        if (error) throw error;
         return data;
     }
+
     static async buscarPorUsuarioPerfilEmpresa(id_usuario) {
         const {
             data,
             error
-        } = await connAdmin.from("empresa").select("*")
-        .eq("id_usuario", id_usuario).maybeSingle();
-        if (error) {
-            throw error;
-        }
+        } = await connAdmin.from("empresa")
+            .select("*")
+            .eq("id_usuario", id_usuario)
+            .maybeSingle();
+
+        if (error) throw error;
         return data;
     }
 }

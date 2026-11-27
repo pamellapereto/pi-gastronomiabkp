@@ -1,24 +1,24 @@
 import { Router } from "express";
 import EmpresaController from "../controllers/empresaController.js";
+import RecrutadorController from "../controllers/recrutadorController.js";
 import AuthMiddleware from "../middlewares/authMiddleware.js";
-
+import EmpresaMiddleware from "../middlewares/empresaMiddleware.js";
+import AdministradorMiddleware from "../middlewares/administradorMiddleware.js";
 
 const router = Router();
 
-router.post("/cadastrar/empresa", 
+router.post(
+    "/cadastrar/empresa",
     AuthMiddleware.validarToken,
+    EmpresaMiddleware.validarPerfil,
     EmpresaController.completarPerfil
 );
-// router.post("/cadastrar/recrutador",
-        //AuthMiddleware.validarToken,
-//     RecrutadorController.completarPerfil
-// );
-// router.post("/cadastrar/candidato",
-        //AuthMiddleware.validarToken,
-//     CandidatoController.completarPerfil
-// );
-// router.post("/cadastrar/administrador",
-        //AuthMiddleware.validarToken,
-//     AdministradorController.completarPerfil
-// );
+
+router.post(
+    "/cadastrar/recrutador",
+    AuthMiddleware.validarToken,
+    EmpresaMiddleware.validarPerfil,
+    RecrutadorController.completarPerfil
+);
+
 export default router;
