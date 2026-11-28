@@ -28,6 +28,17 @@ class EmpresaModel {
         if (error) throw error;
         return data;
     }
+
+    static async excluir(id_empresa, /*se fosse para atualizar, passaria também dados*/) {
+        const {
+            //Se fosse atualizar teria data
+            error                          //Se fosse para atualizar, seria update()
+        } = await connAdmin.from("empresa").delete().eq("id_empresa",
+            id_empresa);
+            if (error) {
+                throw error;
+            }
+    }
 }
 
 export default EmpresaModel;
