@@ -2,7 +2,7 @@
 dele pelo método EnderecoModel.excluir(id_endereco) -
 isso é MUITO PRÓXIMO DE UMA CÓPIA IDÊNTICA DE
 EmpresaModel.excluir(id_empresa) */
-import { connAdmin } from "../config/database.js";
+import conn, { connAdmin } from "../config/database.js";
 class EnderecoModel {
 
     static async criar(dados) {
@@ -18,6 +18,11 @@ class EnderecoModel {
             throw error;
         }
         return data;
+    }
+    static async excluir(id_endereco) {
+        const {
+            error
+        } = await connAdmin/*CONTINUAR*/
     }
 }
 export default EnderecoModel;
