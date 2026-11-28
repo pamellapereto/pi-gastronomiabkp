@@ -1,4 +1,6 @@
 import EmpresaModel from "../models/empresaModel.js";
+import EnderecoModel from "../models/enderecoModel.js";
+import UnidadeModel from "../models/unidadeModel.js";
 
 class EmpresaService {
     static async completarPerfil(id_usuario, dados) {
