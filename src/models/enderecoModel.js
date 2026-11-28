@@ -1,6 +1,8 @@
-/*Tarefa - desenvolver: */
+/*Tarefa - desenvolver a criação de endereço e a exclusão
+dele pelo método EnderecoModel.excluir(id_endereco) -
+isso é MUITO PRÓXIMO DE UMA CÓPIA IDÊNTICA DE
+EmpresaModel.excluir(id_empresa) */
 import { connAdmin } from "../config/database.js";
-
 class EnderecoModel {
 
     static async criar(dados) {
@@ -18,5 +20,4 @@ class EnderecoModel {
         return data;
     }
 }
-
 export default EnderecoModel;
